@@ -55,14 +55,17 @@ class Company:
     def get_employee(self, employee_name):
         emp_obj = self.employee_dict.get(employee_name)
         print(emp_obj.as_dict())
+        return emp_obj
 
     def delete_employee(self, emp_name):
         self.employee_dict.pop(emp_name)
+        return self.employee_dict
 
     def employee_details_view(self):
         for i in self.employee_dict:
             emp_obj = self.employee_dict.get(i)
             print(emp_obj.as_dict())
+        return self.employee_dict
 
 
 def add_company():
@@ -108,14 +111,14 @@ def delete_employee():
 
 
 def display_employees():
-    print("**************************************")
+    print("****************************************")
     company_name = input("Enter company name : ")
     comp_obj = comp_dict.get(company_name)
     if comp_obj is None:
         print("Company doesn't exit ")
         return
     comp_obj.employee_details_view()
-    print("***************************************")
+    print("******************************************")
 
 
 if __name__ == "__main__":
@@ -136,7 +139,6 @@ if __name__ == "__main__":
                 break
             dict_e.get(r)()
             input("Press enter to continue ")
-            print("Choose Option ")
 
     except Exception as e:
         print(e)
